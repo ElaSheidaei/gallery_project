@@ -15,7 +15,8 @@ class GalleriesController < ApplicationController
         @gallery = Gallery.new(gallery_params)
 
         if @gallery.save
-            redirect_to galleries_path
+            # redirect_to galleries_path
+            render json:{massages: "gallery created ", gallery: @gallery}, status: 201
         else 
             render :new, status: :unprocessable_entity
         end 
@@ -44,7 +45,7 @@ class GalleriesController < ApplicationController
     
     private
         def gallery_params
-            params.require(:gallery).permit(:title, :description, :user_id)
+            params.require(:gallery).permit(:title, :description, :image, :user_id)
         end
 
 end

@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
         if @user.save
             # redirect_to users_path
-            render json:{massages: "user created ", user: @user} status: 201
+            render json:{massages: "user created ", user: @user}, status: 201
         else 
             render :new, status: :unprocessable_entity
         end 

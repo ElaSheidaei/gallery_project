@@ -6,6 +6,12 @@ class GalleriesController < ApplicationController
 
     def show
         @gallery = Gallery.find(params[:id])
+        puts @gallery.like_count
+        puts @gallery.dislike_count
+        # @gallery.comments.each do |comment|
+        #     comment.content
+        #     comment.user.username
+        # end
     end
 
     def new 

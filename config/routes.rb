@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   # delete "users/:id", to: "users#destroy"
   # Defines the root path route ("/")
   root "main#index"
-  resources :galleries
+  resources :galleries do
+    resources :comments, only: [ :create, :destroy]
+    resources :reactions, only: [ :create ]
+  end
+
   resources :users, only: [:index, :show]
   put "upload/:gallery_id", to: "upload#update"
 end

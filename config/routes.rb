@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "main#index"
   resources :galleries do
-    resources :comments, only: [ :create, :destroy]
-    resources :reactions, only: [ :create ]
+    resources :comments, only: [ :create,:show, :index, :destroy]
+    resources :reactions, only: [ :create, :index, :show, :update , :destroy]
   end
 
   resources :users, only: [:index, :show]
